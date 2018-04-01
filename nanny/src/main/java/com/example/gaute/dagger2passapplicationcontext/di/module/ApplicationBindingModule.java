@@ -8,6 +8,11 @@ import dagger.android.ContributesAndroidInjector;
 @Module
 public interface ApplicationBindingModule {
 
+    /**
+     * Installs mainActivity instance to the generated Component graph
+     *
+     * @return arrays of class pointers wrapping type T
+     */
     @ContributesAndroidInjector
     MainActivity mainActivity();
 }

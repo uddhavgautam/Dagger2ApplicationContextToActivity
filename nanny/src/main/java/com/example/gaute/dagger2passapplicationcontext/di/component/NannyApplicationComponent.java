@@ -2,7 +2,6 @@ package com.example.gaute.dagger2passapplicationcontext.di.component;
 
 import com.example.gaute.dagger2passapplicationcontext.NannyApplication;
 import com.example.gaute.dagger2passapplicationcontext.di.module.ApplicationBindingModule;
-import com.example.gaute.dagger2passapplicationcontext.di.module.NannyApplicationModule;
 
 import javax.inject.Singleton;
 
@@ -16,12 +15,17 @@ import dagger.android.support.AndroidSupportInjectionModule;
 
 @Singleton
 @Component(modules = {
-        AndroidSupportInjectionModule.class,
-        ApplicationBindingModule.class,
-        NannyApplicationModule.class
+        AndroidSupportInjectionModule.class /* no user here, in my case */,
+        ApplicationBindingModule.class
 })
 public interface NannyApplicationComponent extends AndroidInjector<NannyApplication> {
 
+    /**
+     * Provides NannyApplication instance into the Graph and return AndroidInjector<NannyApplication>
+     * when called create(this) method from Classes
+     * <p>
+     * Graph (Component) builder for NannyApplication
+     */
     @Component.Builder
     abstract class Builder extends AndroidInjector.Builder<NannyApplication> {
     }
