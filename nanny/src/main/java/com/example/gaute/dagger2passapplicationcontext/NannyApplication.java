@@ -8,7 +8,7 @@ import dagger.android.DaggerApplication;
 /**
  * Created by gaute on 3/25/18.
  */
-
+//Dagger support library is used so extend DaggerApplication
 public class NannyApplication extends DaggerApplication {
 
     @Override
@@ -21,8 +21,16 @@ public class NannyApplication extends DaggerApplication {
      */
     @Override
     protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
+
         return DaggerNannyApplicationComponent
-                .builder()
-                .create(this);
+                .builder() /* Got AndroidInjector.Builder<NannyApplication> */
+                .create(this); /* seedInstance(this); return build(); */
+        /* seed Instance actually gets implemented inside DaggerNannyApplicationComponent's Builder class
+        as below:
+        @Override
+        public void seedInstance(NannyApplication arg0) {
+            this.seedInstance = Preconditions.checkNotNull(arg0);
+            }
+         */
     }
 }

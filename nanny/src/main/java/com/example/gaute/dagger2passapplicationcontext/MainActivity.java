@@ -11,7 +11,7 @@ import dagger.android.support.DaggerAppCompatActivity;
 /**
  * A transparent MainActivity
  */
-public class MainActivity extends DaggerAppCompatActivity {
+public class MainActivity extends DaggerAppCompatActivity /* For Dagger Support Library */ {
 
     @Inject
     NannyApplication nannyApplication /* You got the ApplicationContext */;
@@ -19,6 +19,12 @@ public class MainActivity extends DaggerAppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*
+        (HasActivityInjector) activity.getApplication() should be the instance of HasActivityInjector
+        ((HasActivityInjector) activity.getApplication()).activityInjector().inject(this);
+
+        This line injects MyActivity instance into Dagger Framework
+         */
         AndroidInjection.inject(this);
     }
 

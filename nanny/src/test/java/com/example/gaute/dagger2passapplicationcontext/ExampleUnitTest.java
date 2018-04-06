@@ -2,7 +2,7 @@ package com.example.gaute.dagger2passapplicationcontext;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import javax.inject.Inject;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -10,8 +10,12 @@ import static org.junit.Assert.assertEquals;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ExampleUnitTest {
+
+    @Inject
+    private MainActivity mainActivity;
+
     @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+    public void testOnStartMainActivity() {
+        mainActivity.onStart();
     }
 }

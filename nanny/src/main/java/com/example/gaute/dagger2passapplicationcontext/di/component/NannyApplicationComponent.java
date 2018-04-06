@@ -15,18 +15,13 @@ import dagger.android.support.AndroidSupportInjectionModule;
 
 @Singleton
 @Component(modules = {
-        AndroidSupportInjectionModule.class /* no user here, in my case */,
-        ApplicationBindingModule.class
+        AndroidSupportInjectionModule.class /* it makes Dagger generates DaggerNannyApplicationComponent */,
+        ApplicationBindingModule.class /* it generates AndroidInjector.Builder<MainActivity>, which
+        is used to inject requested dependencies by MainActivity */
 })
 public interface NannyApplicationComponent extends AndroidInjector<NannyApplication> {
 
-    /**
-     * Provides NannyApplication instance into the Graph and return AndroidInjector<NannyApplication>
-     * when called create(this) method from Classes
-     * <p>
-     * Graph (Component) builder for NannyApplication
-     */
-    @Component.Builder
+    @Component.Builder /* Simply tells this Builder is DaggerNannyApplicationComponent’s inner Builder class */
     abstract class Builder extends AndroidInjector.Builder<NannyApplication> {
     }
 }
