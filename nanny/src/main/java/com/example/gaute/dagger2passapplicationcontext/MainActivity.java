@@ -18,14 +18,7 @@ public class MainActivity extends DaggerAppCompatActivity /* For Dagger Support 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        /*
-        (HasActivityInjector) activity.getApplication() should be the instance of HasActivityInjector
-        ((HasActivityInjector) activity.getApplication()).activityInjector().inject(this);
-
-        This line injects MyActivity instance into Dagger Framework
-         */
-        // AndroidInjection.inject(this);
+        super.onCreate(savedInstanceState);       
     }
 
     @Override
