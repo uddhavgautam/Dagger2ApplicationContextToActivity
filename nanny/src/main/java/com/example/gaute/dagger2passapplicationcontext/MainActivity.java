@@ -25,7 +25,7 @@ public class MainActivity extends DaggerAppCompatActivity /* For Dagger Support 
 
         This line injects MyActivity instance into Dagger Framework
          */
-        AndroidInjection.inject(this);
+        // AndroidInjection.inject(this);
     }
 
     @Override
